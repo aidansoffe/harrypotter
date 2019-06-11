@@ -17,5 +17,3 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   }
 })
-
-// flexbox
