@@ -1,39 +1,62 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, Text } from 'react-native';
+import { AppRegistry, StyleSheet, View, Text, Image } from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
 import Explore from './app/screens/Explore';
 import Saved from './app/screens/Saved';
 import History from './app/screens/History';
-import Icon from 'react-native-vector-icons/Ionicons'
+// import Category from './component/Explore/Category';
+// import Icon from 'react-native-vector-icons/Ionicons'
 
 
-class App extends Component {
-  render() {
-     return (
-       <View style={styles.container}>
-         <Text></Text>
-       </View>
-    );
-  }
-}
+
 
 export default createBottomTabNavigator({
   Explore:{
   screen: Explore,
-  navigationOptions:{
-    tabBarLabel: 'Explore',
-    tabBarIcon: ({tintColor}) => (
-        <Icon name="ios-search-outline" color={tintColor} size={24} />
-    )
+  navigationOptions: {
+    tabBarLabel: 'EXPLORE',
+    tabBarIcon: ({tintColor}) => {
+      return (<Image source={require('./app/img/air.png')} style={
+        { height: 20, width: 20, tintColor: tintColor }} />);
+    }
   }
   },
+
   Saved:{
-    screen:Saved
+    screen:Saved,
+    navigationOptions: {
+      tabBarLabel: 'SAVED',
+      tabBarIcon: ({tintColor}) => {
+        return (<Image source={require('./app/img/air.png')} style={
+          { height: 20, width: 20, tintColor: tintColor }} />);
+      }
+    }
   },
   History: {
-    screen:History
-  }
-}) 
+    screen:History,
+    navigationOptions: {
+      tabBarLabel: 'HISTORY',
+      tabBarIcon: ({tintColor}) => {
+        return (<Image source={require('./app/img/air.png')} style={
+          { height: 20, width: 20, tintColor: tintColor }} />);
+      }
+    }
+  },
+  // }, {
+  //   tabBarOptions: {
+  //     activTintColor: 'red',
+  //     inactiveTintColor: 'grey',
+  //     style: {
+  //       backgroundColor: 'white',
+  //       borderTopWidth: 0,
+  //       shadowOffset: { width: 5, height: 3},
+  //       shadowColor: 'black',
+  //       shadowOpacity: 0.5,
+  //       elevation: 5
+  //     }
+  //   }
+  // }
+})
 
 const styles = StyleSheet.create({
   container: {
