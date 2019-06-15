@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Image, View, Text, SafeAreaView, Platform, StatusBar, TextInput } from 'react-native';
+import { StyleSheet, ScrollView, Image, Dimensions, View, Text, SafeAreaView, Platform, StatusBar, TextInput } from 'react-native';
 import Category from './component/Explore/Category';
 
+const {height, width} = Dimensions.get('window')
 
 export default class Explore extends Component {
   componentWillMount() {
@@ -37,26 +38,31 @@ export default class Explore extends Component {
               }} />
           </View>
         </View>
-        <ScrollView
-          scrollEventThrottle={16}
-        >
+        <ScrollView scrollEventThrottle={16}>
           <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
-            <Text style={{
-              fontSize: 24, fontWeight: '700',
-              paddingHorizontal: 20
-            }}>
-              Hello Wizards!
-            </Text>
+            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20 }}>Popular movies</Text>
             <View style={{ height: 130, marginTop: 20 }}>
-              <ScrollView>
+              <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+
                 <Category
                   imageUri={require('../img/hp1.jpg')}
-                  name="Harry Potter And The Chamber Of Secret" />
+                  name="Harry Potter And The Sorcere's Stone"
+                />
+                <Category imageUri={require('../img/hp2.jpg')}
+                  name="Harry Potter And The Chamber Of Secret"
+                />
+                <Category imageUri={require('../img/hp3.jpg')}
+                  name="Harry Potter And The Prisoners of Azkaban"
+                />
               </ScrollView>
-
             </View>
           </View>
-
+          <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
+            <Text style={{ fontWeight: 100, marginTop: 10 }}>A new selection of movies</Text>
+            <View><Image sourse={require('../img/hp1.jpg')} />
+            </View>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );
