@@ -16,7 +16,7 @@ export default createBottomTabNavigator({
   navigationOptions: {
     tabBarLabel: 'EXPLORE',
     tabBarIcon: ({tintColor}) => {
-      return (<Image source={require('./app/img/air.png')} style={
+      return (<Image source={require('./app/img/logo.png')} style={
         { height: 20, width: 20, tintColor: tintColor }} />);
     }
   }
@@ -27,7 +27,7 @@ export default createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'SAVED',
       tabBarIcon: ({tintColor}) => {
-        return (<Image source={require('./app/img/air.png')} style={
+        return (<Image source={require('./app/img/logo.png')} style={
           { height: 20, width: 20, tintColor: tintColor }} />);
       }
     }
@@ -37,7 +37,7 @@ export default createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'HISTORY',
       tabBarIcon: ({tintColor}) => {
-        return (<Image source={require('./app/img/air.png')} style={
+        return (<Image source={require('./app/img/logo.png')} style={
           { height: 20, width: 20, tintColor: tintColor }} />);
       }
     }
