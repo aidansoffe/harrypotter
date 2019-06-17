@@ -60,9 +60,9 @@ export default class Explore extends Component {
           <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
             <Text style={{ fontWeight: 100, marginTop: 10 }}>A new selection of movies</Text>
-            <View style={{width: width - 40, height: height - 200, marginTop: 20}}>
+            <View style={{width: width - 40, height: height - 500, marginTop: 20}}>
               <Image style={{flex: 1, height: null, width: null,resizeMode: 'cover',
-            borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} sourse={require('../img/hp3.jpg')} />
+            borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} source={require('../img/hp1.jpg')} />
             </View>
           </View>
         </ScrollView>
