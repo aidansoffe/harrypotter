@@ -40,7 +40,7 @@ export default class Explore extends Component {
         </View>
         <ScrollView scrollEventThrottle={16}>
           <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20 }}>Popular movies</Text>
+            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20 }}>Explore all movies</Text>
             <View style={{ height: 130, marginTop: 20 }}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 
@@ -54,17 +54,33 @@ export default class Explore extends Component {
                 <Category imageUri={require('../img/hp3.jpg')}
                   name="Harry Potter And The Prisoners of Azkaban"
                 />
+                 <Category imageUri={require('../img/hp4.jpg')}
+                  name="Harry Potter And The Goblet Of Fire"
+                />
+                 <Category imageUri={require('../img/hp5.jpg')}
+                  name="Harry Potter And The Order Of Phoenix"
+                />
+                 <Category imageUri={require('../img/hp6.jpg')}
+                  name="Harry Potter And The Half-Blood Prince"
+                />
+                 <Category imageUri={require('../img/hp7.jpg')}
+                  name="Harry Potter And The Deathly Hallows, Part 1"
+                />
+                <Category imageUri={require('../img/hp8.jpg')}
+                  name="Harry Potter And The Deathly Hallows, Part 2"
+                />
               </ScrollView>
             </View>
           </View>
           <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
-            <Text style={{ fontWeight: 100, marginTop: 10 }}>A new selection of movies</Text>
-            <View style={{width: width - 40, height: height - 500, marginTop: 20}}>
-              <Image style={{flex: 1, height: null, width: null,resizeMode: 'cover',
-            borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} source={require('../img/hp1.jpg')} />
+            <Text style={{ fontWeight: 100, marginTop: 10, color: '#b63838' }}>Popular movies</Text>
+            <View style={{width: '100%', height: '100%', marginTop: 20}}>
+              <Image style={{width: 335, height: 300, borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} source={require('../img/hp1.jpg')} />
             </View>
+            
           </View>
+          
         </ScrollView>
       </SafeAreaView>
     );
