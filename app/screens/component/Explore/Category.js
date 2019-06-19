@@ -7,7 +7,7 @@ export default class Category extends Component {
       <View style={{
         height: 130, width: 150,
         marginLeft: 20, borderColor: '#dddddd',
-        borderWidth: 0.5
+        borderWidth: 0.5,
       }}>
         <View style={{ flex: 2 }}>
           <Image source={this.props.imageUri}
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center', 
+   
   }
 })

@@ -11,8 +11,28 @@ export default class Explore extends Component {
       this.startHeaderHeight = 100 + StatusBar.currentHeight
     }
   }
+  constructor(){
+    super();
+    this.state = {
+      search: ''
+    };
+    
+updateSearch(event) {
+  this.setState({search: event.target.value.substr(0, 20)});
+}
+
+  }
   render() {
+    let filteredCategory = this.props.Category;
     return (
+      <View>
+          <ul>
+            {filteredCategory.map((category)=>{
+              return <Category category={category}
+              key={category.name} />
+            })}
+          </ul>
+     
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{
           height: this.startHeaderHeight, backgroundColor: 'white',
@@ -37,6 +57,7 @@ export default class Explore extends Component {
                 backgroundColor: 'white'
               }} />
           </View>
+          
         </View>
         <ScrollView scrollEventThrottle={16}>
           <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
@@ -74,7 +95,7 @@ export default class Explore extends Component {
           </View>
           <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
-            <Text style={{ fontWeight: 100, marginTop: 10, color: '#b63838' }}>Popular movies</Text>
+            <Text style={{ fontWeight: 300, fontSize: 15, marginTop: 10, color: '#b63838' }}>Popular movies</Text>
             <View style={{width: '100%', height: '100%', marginTop: 20}}>
               <Image style={{width: 335, height: 300, borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} source={require('../img/hp1.jpg')} />
             </View>
@@ -83,6 +104,7 @@ export default class Explore extends Component {
           
         </ScrollView>
       </SafeAreaView>
+      </View>
     );
   }
 }
