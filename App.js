@@ -61,7 +61,7 @@ export default createBottomTabNavigator({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: '#252525 ',
     justifyContent: 'center',
     alignSelf: 'center',
   },
