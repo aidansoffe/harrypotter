@@ -11,27 +11,27 @@ export default class Explore extends Component {
       this.startHeaderHeight = 100 + StatusBar.currentHeight
     }
   }
-  constructor(){
-    super();
-    this.state = {
-      search: ''
-    };
-    
-updateSearch(event) {
-  this.setState({search: event.target.value.substr(0, 20)});
-}
+//   constructor(){
+//     super();
+//     this.state = {
+//       search: ''
+//     };
 
-  }
+// updateSearch(event) {
+//   this.setState({search: event.target.value.substr(0, 20)});
+// }
+
+//   }
   render() {
-    let filteredCategory = this.props.Category;
-    return (
-      <View>
-          <ul>
-            {filteredCategory.map((category)=>{
-              return <Category category={category}
-              key={category.name} />
-            })}
-          </ul>
+    // let filteredCategory = this.props.Category;
+    // return (
+    //   <View>
+    //       <ul>
+    //         {filteredCategory.map((category)=>{
+    //           return <Category category={category}
+    //           key={category.name} />
+    //         })}
+    //       </ul>
      
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{
@@ -104,8 +104,8 @@ updateSearch(event) {
           
         </ScrollView>
       </SafeAreaView>
-      </View>
-    );
+      {/* // </View> */}
+    {/* // ); */}
   }
 }
 
