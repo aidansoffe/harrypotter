@@ -42,20 +42,20 @@ export default createBottomTabNavigator({
       }
     }
   },
-  // }, {
-  //   tabBarOptions: {
-  //     activTintColor: 'red',
-  //     inactiveTintColor: 'grey',
-  //     style: {
-  //       backgroundColor: 'white',
-  //       borderTopWidth: 0,
-  //       shadowOffset: { width: 5, height: 3},
-  //       shadowColor: 'black',
-  //       shadowOpacity: 0.5,
-  //       elevation: 5
-  //     }
-  //   }
-  // }
+  }, {
+    tabBarOptions: {
+      activTintColor: 'red',
+      inactiveTintColor: 'grey',
+      style: {
+        backgroundColor: 'white',
+        borderTopWidth: 0,
+        shadowOffset: { width: 5, height: 3},
+        shadowColor: 'black',
+        shadowOpacity: 0.5,
+        elevation: 5
+      }
+    }
+  }
 })
 
 const styles = StyleSheet.create({
