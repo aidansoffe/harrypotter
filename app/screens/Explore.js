@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Image, Dimensions, View, Text, SafeAreaView, Platform, StatusBar, TextInput } from 'react-native';
+import { StyleSheet, ScrollView, Image, View, Text, SafeAreaView, Platform, StatusBar, TextInput } from 'react-native';
 import Category from './component/Explore/Category';
-
+import Movie from './component/Explore/Movie';
 
 
 export default class Explore extends Component {
@@ -19,12 +19,14 @@ export default class Explore extends Component {
     }
   }
 
-  // onChange = e => {
-  //   console.log('e: ', e.target)
-  //   this.setState({
-  //     name: e
-  //   })
-  // }
+  renderMovies(movies) {
+    if (movies !== '') {
+      return movies.map((movie) => {
+        return < Movie movie={movie.img}
+          key={movie.name} />
+      })
+    } 
+  }
 
   render() {
     const movies = [
@@ -36,15 +38,21 @@ export default class Explore extends Component {
       { img: require('../img/hp6.jpg'), name: "Harry Potter And The Half-Blood Prince" },
       { img: require('../img/hp7.jpg'), name: "Harry Potter And The Deathly Hallows, Part 1" },
       { img: require('../img/hp8.jpg'), name: "Harry Potter And The Deathly Hallows, Part 2" }]
-      console.log('state: ', this.state.name);
-      const filtered = movies.filter(movie => console.log('> ', movie) || movie.name === this.state.name);
-      console.log('F', filtered)
+    console.log('state: ', this.state.name);
+
+    const filtered = movies.filter((movie) => {
+      return movie.name.indexOf(this.state.name) !== -1;
+    }
+    );
+    console.log('F', filtered)
     return (
+
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{
           height: this.startHeaderHeight, backgroundColor: 'white',
           borderBottomWidth: 1, borderBottomColor: '#dddddd'
         }}>
+
           <View style={{
             flexDirection: 'row', padding: 10,
             backgroundColor: 'white', marginHorizontal: 20,
@@ -59,8 +67,8 @@ export default class Explore extends Component {
               underlineColorAndroid='transparent'
               placeholder="Search for movies"
               placeholderTextColor='grey'
-              style={{ flex: 1, fontWeight: '700', backgroundColor: 'white' }} 
-              onChangeText={(name) => this.setState({name})} 
+              style={{ flex: 1, fontWeight: '700', backgroundColor: 'white' }}
+              onChangeText={(name) => this.setState({ name })}
             />
           </View>
         </View>
@@ -70,13 +78,15 @@ export default class Explore extends Component {
             <View style={{ height: 130, marginTop: 20 }}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 {this.state.name === '' ?
-                  movies.map(movie => {
-                  return (
-                    <Category imageUri={movie.img} name={movie.name} />
-                  )
-                }) : <Category name={filtered[0].name} imageUri={filtered[0].img} />}
+                  movies.map(movie =>  {
+                    console.log('movie:::', movie)
+                    return (
+                      <Category imageUri={movie.img} name={movie.name} />
+                    )
+                  }) : <Category name={filtered.name || filtered.name} imageUri={filtered.img} />}
               </ScrollView>
             </View>
+            {this.renderMovies(filtered)}
           </View>
           <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
@@ -91,6 +101,8 @@ export default class Explore extends Component {
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
