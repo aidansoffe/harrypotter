@@ -55,13 +55,13 @@ export default createBottomTabNavigator({
         elevation: 5
       }
     }
-  }
+  // }
 })
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#252525 ',
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignSelf: 'center',
   },
