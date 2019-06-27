@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Image, View, Text, SafeAreaView, Platform, StatusBar, TextInput } from 'react-native';
+import { StyleSheet, ScrollView, Image, View, Text, SafeAreaView, Platform, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Category from './component/Explore/Category';
 import Movie from './component/Explore/Movie';
 
@@ -25,7 +25,7 @@ export default class Explore extends Component {
         return < Movie movie={movie.img}
           key={movie.name} />
       })
-    } 
+    }
   }
 
   render() {
@@ -49,13 +49,13 @@ export default class Explore extends Component {
 
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{
-          height: this.startHeaderHeight, backgroundColor: 'white',
+          height: this.startHeaderHeight, backgroundColor: '#3b4241',
           borderBottomWidth: 1, borderBottomColor: '#dddddd'
         }}>
 
           <View style={{
             flexDirection: 'row', padding: 10,
-            backgroundColor: 'white', marginHorizontal: 20,
+            backgroundColor: '#ffffff', marginHorizontal: 20,
             shadowOffset: { width: 0, height: 0 },
             shadowColor: 'black',
             shadowOpacity: 0.2,
@@ -72,27 +72,34 @@ export default class Explore extends Component {
             />
           </View>
         </View>
-        <ScrollView scrollEventThrottle={16}>
-          <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20 }}>Explore all movies</Text>
+        <ScrollView scrollEventThrottle={15}>
+          <View style={{ flex: 1, backgroundColor: '#3b4241', paddingTop: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20, color: '#ffffff' }}>Explore all movies</Text>
             <View style={{ height: 130, marginTop: 20 }}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 {this.state.name === '' ?
-                  movies.map(movie =>  {
+                  movies.map(movie => {
                     console.log('movie:::', movie)
                     return (
-                      <Category imageUri={movie.img} name={movie.name} />
+
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Watch')} >
+                        <Category imageUri={movie.img} name={movie.name} />
+                        </TouchableOpacity>
                     )
+
                   }) : <Category name={filtered.name || filtered.name} imageUri={filtered.img} />}
+
+
+                {this.renderMovies(movies)}
               </ScrollView>
             </View>
-            {this.renderMovies(filtered)}
+
           </View>
-          <View style={{ marginTop: 40, paddingHorizontal: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: 700 }}>Welcome Wizards!</Text>
-            <Text style={{ fontWeight: 100, marginTop: 10, color: '#b63838' }}>Popular movies</Text>
+          <View style={{ flex: 1, backgroundColor: '#3b4241', marginTop: 40, paddingHorizontal: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: 700, color: '#ffffff' }}>Welcome Wizards!</Text>
+            <Text style={{ fontWeight: 500, marginTop: 10, color: '#ffffff', fontSize: 17 }}>Popular movies</Text>
             <View style={{ width: '100%', height: '100%', marginTop: 20 }}>
-              <Image style={{ width: 335, height: 300, borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }} source={require('../img/hp1.jpg')} />
+              <Image style={{ width: 335, height: 300, borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }} source={require('../img/hp7.jpg')} />
             </View>
           </View>
 
@@ -108,6 +115,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   }
 })

@@ -4,6 +4,10 @@ import {createBottomTabNavigator} from 'react-navigation';
 import Explore from './app/screens/Explore';
 import Saved from './app/screens/Saved';
 import History from './app/screens/History';
+import Navigation from './app/screens/component/Explore/Navigation';
+import Movie from './app/screens/component/Explore/Movie';
+import Category from './app/screens/component/Explore/Category';
+
 // import Category from './component/Explore/Category';
 // import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -17,7 +21,9 @@ export default createBottomTabNavigator({
     tabBarLabel: 'EXPLORE',
     tabBarIcon: ({tintColor}) => {
       return (<Image source={require('./app/img/logo.png')} style={
-        { height: 20, width: 20, tintColor: tintColor }} />);
+        { height: 20, width: 20, tintColor: tintColor }} />
+       
+        );
     }
   }
   },
@@ -61,7 +67,7 @@ export default createBottomTabNavigator({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#26322C',
     justifyContent: 'center',
     alignSelf: 'center',
   },
