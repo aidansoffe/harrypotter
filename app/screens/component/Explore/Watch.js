@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 // Harry Potter And The Sorceres Stone
-export default class History extends Component {
+export default class Watch extends Component {
   render() {
     
     return (
-      <View style={StyleSheet.container}>
+      <View style={styles.container}>
         <Text>Hola</Text>
       </View>
     );

@@ -8,11 +8,11 @@ export default class Category extends Component {
         <View style={{ flex: 2 }}>
           <Image 
             source={this.props.imageUri}
-            style={styles.img}
+            style={{flex: 1, width: null, height: null, resizeMode: 'cover'}}
           />
         </View>
-        <View style={styles.text}>
-          <Text>{this.props.name}</Text>
+        <View style={{flex: 1, paddingLeft: 10, paddingTop: 10 }}>
+          <Text style={{color: '#ffffff'}}>{this.props.name}</Text>
         </View>
       </View>
     );
@@ -27,11 +27,6 @@ const styles = StyleSheet.create({
   }, outer: {
     height: 130, width: 150,
     marginLeft: 20, borderColor: '#dddddd',
-    borderWidth: 0.5
-  },
-  img: {
-    flex: 1, width: null, height: null,
-    resizeMode: 'cover'
-  },
-  text: { flex: 1, paddingLeft: 10, paddingTop: 10 }
+    borderWidth: 0.5, backgroundColor: '#0C6152'
+  }
 })
