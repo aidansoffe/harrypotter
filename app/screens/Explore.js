@@ -79,10 +79,8 @@ export default class Explore extends Component {
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 {this.state.name === '' ?
                   movies.map(movie => {
-                    console.log('movie:::', movie)
                     return (
-
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Watch')} >
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Watch', { movieName: movie.name})} >
                         <Category imageUri={movie.img} name={movie.name} />
                         </TouchableOpacity>
                     )
@@ -116,6 +114,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   }
 })
