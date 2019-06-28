@@ -1,76 +1,95 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, Text, Image } from 'react-native';
-import {createBottomTabNavigator} from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import Explore from './app/screens/Explore';
 import Saved from './app/screens/Saved';
 import History from './app/screens/History';
-import Navigation from './app/screens/component/Explore/Navigation';
-import Movie from './app/screens/component/Explore/Movie';
-import Category from './app/screens/component/Explore/Category';
+import Watch from './app/screens/component/Explore/Watch';
+
 
 // import Category from './component/Explore/Category';
 // import Icon from 'react-native-vector-icons/Ionicons'
 
 
+{/* <AppNavigator /> */ }
 
-
-export default createBottomTabNavigator({
-  Explore:{
-  screen: Explore,
-  navigationOptions: {
-    tabBarLabel: 'EXPLORE',
-    tabBarIcon: ({tintColor}) => {
-      return (<Image source={require('./app/img/logo.png')} style={
-        { height: 20, width: 20, tintColor: tintColor }} />
-       
+const ExploreIt = createStackNavigator({
+  Explore: {
+    screen: Explore,
+    navigationOptions: {
+      tabBarLabel: 'EXPLORE',
+      tabBarIcon: ({ tintColor }) => {
+        return (<Image source={require('./app/img/logo.png')} style={
+          { height: 20, width: 20, tintColor: tintColor }} />
         );
+      }
+    }
+  },
+  Watch: {
+    screen: Watch,
+    navigationOptions: {
+      tabBarLabel: 'EXPLORE',
+      tabBarIcon: ({ tintColor }) => {
+        return (<Image source={require('./app/img/logo.png')} style={
+          { height: 20, width: 20, tintColor: tintColor }} />
+        );
+      }
     }
   }
-  },
+}
+);
 
-  Saved:{
-    screen:Saved,
+
+const SavedTab = createStackNavigator({
+  Saved: {
+    screen: Saved,
     navigationOptions: {
       tabBarLabel: 'SAVED',
-      tabBarIcon: ({tintColor}) => {
+      tabBarIcon: ({ tintColor }) => {
         return (<Image source={require('./app/img/logo.png')} style={
           { height: 20, width: 20, tintColor: tintColor }} />);
       }
     }
   },
-  History: {
-    screen:History,
-    navigationOptions: {
-      tabBarLabel: 'HISTORY',
-      tabBarIcon: ({tintColor}) => {
-        return (<Image source={require('./app/img/logo.png')} style={
-          { height: 20, width: 20, tintColor: tintColor }} />);
-      }
-    }
-  },
-  }, {
+}, {
     tabBarOptions: {
-      activTintColor: 'red',
+      activeTintColor: 'red',
       inactiveTintColor: 'grey',
       style: {
         backgroundColor: 'white',
         borderTopWidth: 0,
-        shadowOffset: { width: 5, height: 3},
+        shadowOffset: { width: 5, height: 3 },
         shadowColor: 'black',
         shadowOpacity: 0.5,
         elevation: 5
       }
     }
-  // }
-})
+  }
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#26322C',
-    justifyContent: 'center',
-    alignSelf: 'center',
-  },
-})
+const HistoryTab = createStackNavigator({
+  History: {
+    screen: History,
+    navigationOptions: {
+      tabBarLabel: 'HISTORY',
+      tabBarIcon: ({ tintColor }) => {
+        return (<Image source={require('./app/img/logo.png')} style={
+          { height: 20, width: 20, tintColor: tintColor }} />);
+      }
+    }
+  }
+}
+);
 
-AppRegistry.registerComponent('App', () => App);
+// export default createBottomTabNavigator({
+// })
+
+
+export default RootStack = createBottomTabNavigator({
+  ExploreIt: ExploreIt,
+  SavedTab: SavedTab,
+  HistoryTab: HistoryTab
+});
+
+
+AppRegistry.registerComponent('App', () => RootStack);
