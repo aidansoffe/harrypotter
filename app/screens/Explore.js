@@ -30,14 +30,14 @@ export default class Explore extends Component {
 
   render() {
     const movies = [
-      { img: require('../img/hp1.jpg'), name: 'Harry Potter And The Sorceres Stone' },
-      { img: require('../img/hp2.jpg'), name: "Harry Potter And The Chamber Of Secret" },
-      { img: require('../img/hp3.jpg'), name: "Harry Potter And The Prisoners of Azkaban" },
-      { img: require('../img/hp4.jpg'), name: "Harry Potter And The Goblet Of Fire" },
-      { img: require('../img/hp5.jpg'), name: "Harry Potter And The Order Of Phoenix" },
-      { img: require('../img/hp6.jpg'), name: "Harry Potter And The Half-Blood Prince" },
-      { img: require('../img/hp7.jpg'), name: "Harry Potter And The Deathly Hallows, Part 1" },
-      { img: require('../img/hp8.jpg'), name: "Harry Potter And The Deathly Hallows, Part 2" }]
+      { img: require('../img/hp1.jpg'), name: 'Harry Potter And The Sorceres Stone', id: 1 },
+      { img: require('../img/hp2.jpg'), name: "Harry Potter And The Chamber Of Secret", id: 2 },
+      { img: require('../img/hp3.jpg'), name: "Harry Potter And The Prisoners of Azkaban", id: 3},
+      { img: require('../img/hp4.jpg'), name: "Harry Potter And The Goblet Of Fire", id:4 },
+      { img: require('../img/hp5.jpg'), name: "Harry Potter And The Order Of Phoenix" , id: 5},
+      { img: require('../img/hp6.jpg'), name: "Harry Potter And The Half-Blood Prince", id: 6},
+      { img: require('../img/hp7.jpg'), name: "Harry Potter And The Deathly Hallows, Part 1" , id: 7},
+      { img: require('../img/hp8.jpg'), name: "Harry Potter And The Deathly Hallows, Part 2", id: 8 }]
     console.log('state: ', this.state.name);
 
     const filtered = movies.filter((movie) => {
@@ -80,7 +80,7 @@ export default class Explore extends Component {
                 {this.state.name === '' ?
                   movies.map(movie => {
                     return (
-                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Watch', { movieName: movie.name})} >
+                      <TouchableOpacity onPress={() => this.props.navigation.navigate('Watch', { id: movie.id})} >
                         <Category imageUri={movie.img} name={movie.name} />
                         </TouchableOpacity>
                     )
