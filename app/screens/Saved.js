@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class Saved extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{color:'blue', fontSize: 20, fontWeight: 700}}>Saved movies</Text>
+                <LinearGradient style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }} colors={['#000000', '#006400']}>
+
+        <Text style={{color:'#f5fffa', fontSize: 30, fontWeight: 700}}>Saved movies</Text>
+        </LinearGradient> 
       </View>
     );
   }

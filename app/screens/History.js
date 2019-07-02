@@ -8,8 +8,8 @@ export default class History extends Component {
 
     return (
       <View style={styles.container}>
-        <LinearGradient style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }} colors={['#61045f', '#20011f']}>
-        <Text style={{ color:'yellow', fontSize: 20, fontWeight: 700}}> Hola </Text>
+        <LinearGradient style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }} colors={['#000000', '#006400']}>
+        <Text style={{ color:'#ffffff', fontSize: 30, fontWeight: 700}}> History </Text>
       </LinearGradient> 
       </View>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, Linking} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 // Harry Potter And The Sorceres Stone
 export default class Watch extends Component {
@@ -36,11 +37,13 @@ export default class Watch extends Component {
     console.log('params: ', this.props.navigation.state.params)
     return (
       <View style={styles.container}>
+        <LinearGradient style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }} colors={['#61045f', '#F81CC6']}>
         <Button 
+           style={styles.buttonConfig}
           title="Click to watch"
           onPress={() => Linking.openURL(this.show(this.props.navigation.state.params.id))}
             />
-
+       </LinearGradient> 
       </View>
     );
   }
@@ -51,6 +54,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'blue'
+    color: 'white',
+    
+  },
+  buttonConfig: {
+    color: 'green'
   }
 })

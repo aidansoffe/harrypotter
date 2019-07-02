@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, ScrollView, Image, View, Text, SafeAreaView, Platform, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Category from './component/Explore/Category';
 import Movie from './component/Explore/Movie';
-
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class Explore extends Component {
   constructor(props) {
@@ -49,8 +49,8 @@ export default class Explore extends Component {
 
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{
-          height: this.startHeaderHeight, backgroundColor: '#3b4241',
-          borderBottomWidth: 1, borderBottomColor: '#dddddd'
+          height: this.startHeaderHeight,borderBottomWidth: 1, borderBottomColor: 'white'
+          
         }}>
 
           <View style={{
@@ -73,8 +73,10 @@ export default class Explore extends Component {
           </View>
         </View>
         <ScrollView scrollEventThrottle={15}>
-          <View style={{ flex: 1, backgroundColor: '#3b4241', paddingTop: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20, color: '#ffffff' }}>Explore all movies</Text>
+        {/* <LinearGradient style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }} colors={['#87cefa', '#ffffff' ]}> */}
+
+          <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: '700', paddingHorizontal: 20, color: 'dimgrey' }}>Explore all movies</Text>
             <View style={{ height: 130, marginTop: 20 }}>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                 {this.state.name === '' ?
@@ -93,15 +95,16 @@ export default class Explore extends Component {
             </View>
 
           </View>
-          <View style={{ flex: 1, backgroundColor: '#3b4241', marginTop: 40, paddingHorizontal: 20 }}>
-            <Text style={{ fontSize: 20, fontWeight: 700, color: '#ffffff' }}>Welcome Wizards!</Text>
-            <Text style={{ fontWeight: 500, marginTop: 10, color: '#ffffff', fontSize: 17 }}>Popular movies</Text>
+          <View style={{ flex: 1, backgroundColor: 'white', marginTop: 40, paddingHorizontal: 20 }}>
+            <Text style={{ fontSize: 20, fontWeight: 700,color: 'dimgrey' }}>Welcome Wizards!</Text>
+            <Text style={{ fontWeight: 500, marginTop: 10, color: 'dimgrey', fontSize: 17 }}>Popular movies</Text>
             <View style={{ width: '100%', height: '100%', marginTop: 20 }}>
               <Image style={{ width: 335, height: 300, borderRadius: 5, borderWidth: 1, borderColor: '#dddddd' }} source={require('../img/hp7.jpg')} />
             </View>
           </View>
-
+          {/* </LinearGradient> */}
         </ScrollView>
+  
       </SafeAreaView>
     );
   }
