@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     
   },
   buttonConfig: {
-    color: 'green'
+    color: '#ffffff'
   }
 })
